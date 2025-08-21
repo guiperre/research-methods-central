@@ -524,7 +524,9 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
+        <!-- Animated Background Canvas -->
+        <canvas id="halftoneCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+        <div class="container" style="position: relative; z-index: 2;">
             <h1>Free Research Methods Community</h1>
             <p>Join thousands of researchers sharing tools, templates, and knowledge. Everything is completely free - enhanced by our partners.</p>
             
@@ -1077,6 +1079,76 @@
             currentUser = null;
             location.reload();
         }
+
+        // Halftone Wave Animation
+        function initHalftoneAnimation() {
+            const canvas = document.getElementById('halftoneCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            let animationFrameId;
+            let time = 0;
+
+            const resizeCanvas = () => {
+                const hero = document.querySelector('.hero');
+                canvas.width = hero.offsetWidth;
+                canvas.height = hero.offsetHeight;
+            };
+
+            const drawHalftoneWave = () => {
+                const gridSize = 20;
+                const rows = Math.ceil(canvas.height / gridSize);
+                const cols = Math.ceil(canvas.width / gridSize);
+
+                for (let y = 0; y < rows; y++) {
+                    for (let x = 0; x < cols; x++) {
+                        const centerX = x * gridSize;
+                        const centerY = y * gridSize;
+                        const distanceFromCenter = Math.sqrt(
+                            Math.pow(centerX - canvas.width / 2, 2) + 
+                            Math.pow(centerY - canvas.height / 2, 2)
+                        );
+                        const maxDistance = Math.sqrt(
+                            Math.pow(canvas.width / 2, 2) + 
+                            Math.pow(canvas.height / 2, 2)
+                        );
+                        const normalizedDistance = distanceFromCenter / maxDistance;
+                        
+                        const waveOffset = Math.sin(normalizedDistance * 10 - time) * 0.5 + 0.5;
+                        const size = gridSize * waveOffset * 0.8;
+
+                        ctx.beginPath();
+                        ctx.arc(centerX, centerY, size / 2, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(255, 255, 255, ${waveOffset * 0.3})`;
+                        ctx.fill();
+                    }
+                }
+            };
+
+            const animate = () => {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                drawHalftoneWave();
+
+                time += 0.03;
+                animationFrameId = requestAnimationFrame(animate);
+            };
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            animate();
+
+            return () => {
+                cancelAnimationFrame(animationFrameId);
+                window.removeEventListener('resize', resizeCanvas);
+            };
+        }
+
+        // Initialize halftone animation when page loads
+        document.addEventListener('DOMContentLoaded', initHalftoneAnimation);
     </script>
 </body>
 </html>
