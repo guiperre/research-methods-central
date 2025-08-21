@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Ethics & AI Disclosure Template - Research Methods Central</title>
+    <meta name="description" content="Complete template for disclosing AI use in research. Includes IRB language, methods section text, and transparency guidelines for academic integrity.">
+    <meta name="keywords" content="AI ethics research, IRB AI disclosure, research transparency, academic integrity AI, AI methods section">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .article-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .article-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.3);
+        }
+        
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .content-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section h3 {
+            font-size: 1.3rem;
+            color: white;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .template-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #48bb78;
+            position: relative;
+        }
+        
+        .template-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .template-title {
+            color: #48bb78;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .copy-btn {
+            background: rgba(72, 187, 120, 0.2);
+            color: #48bb78;
+            border: 1px solid #48bb78;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .template-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .field-note {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .field-note h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .customization-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .option-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .option-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .option-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .option-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .ethics-principles {
+            background: rgba(245, 101, 101, 0.1);
+            border: 2px solid rgba(245, 101, 101, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .ethics-principles h3 {
+            color: #f56565;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .best-practices {
+            background: rgba(72, 187, 120, 0.1);
+            border: 2px solid rgba(72, 187, 120, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .best-practices h3 {
+            color: #48bb78;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .warning-box {
+            background: rgba(245, 101, 101, 0.1);
+            border: 2px solid rgba(245, 101, 101, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .warning-box h4 {
+            color: #f56565;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .template-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Research Methods Central</a>
+            <a href="resource-directory.html" class="back-link">← Back to Resources</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="article-header">
+            <h1 class="article-title">Research Ethics & AI Template</h1>
+            <p class="article-subtitle">
+                Complete disclosure templates for transparent AI use in research. IRB-ready language for proposals, methods sections, and ethics statements.
+            </p>
+            <a href="#download" class="download-btn">📋 Download Templates</a>
+            <a href="#examples" class="download-btn">📝 See Examples</a>
+        </div>
+
+        <div class="content-section">
+            <h2>🎯 Why Transparent AI Disclosure Matters</h2>
+            <p>
+                As AI becomes more common in research, transparent disclosure isn't just ethical—it's becoming a requirement. Funding agencies, IRBs, and journals are developing guidelines, and getting ahead of this curve protects your research integrity.
+            </p>
+            
+            <div class="ethics-principles">
+                <h3>⚖️ Core Ethical Principles</h3>
+                <ul style="color: rgba(255, 255, 255, 0.9); list-style: disc; padding-left: 2rem;">
+                    <li style="margin-bottom: 0.8rem;"><strong>Transparency:</strong> Readers should know how AI influenced your research</li>
+                    <li style="margin-bottom: 0.8rem;"><strong>Accountability:</strong> You remain responsible for all research decisions</li>
+                    <li style="margin-bottom: 0.8rem;"><strong>Reproducibility:</strong> Others should be able to understand and replicate your process</li>
+                    <li style="margin-bottom: 0.8rem;"><strong>Academic Integrity:</strong> AI assistance should enhance, not replace, scholarly thinking</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>📋 Ready-to-Use Templates</h2>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('irb')">IRB Proposal</button>
+                <button class="tab" onclick="showTab('methods')">Methods Section</button>
+                <button class="tab" onclick="showTab('ethics')">Ethics Statement</button>
+                <button class="tab" onclick="showTab('limitations')">Limitations</button>
+            </div>
+
+            <div id="irb" class="tab-content active">
+                <div class="template-box">
+                    <div class="template-header">
+                        <div class="template-title">IRB Proposal - AI Use Disclosure</div>
+                        <button class="copy-btn" onclick="copyToClipboard('irb-template')">📋 Copy Text</button>
+                    </div>
+                    <div class="template-text" id="irb-template">
+                        <strong>Use of Artificial Intelligence Tools</strong><br><br>
+                        
+                        This study will employ artificial intelligence (AI) tools to [SPECIFY PURPOSE: e.g., "assist with initial data coding," "generate survey question variations," "transcribe interview recordings"]. The specific AI tools to be used include [LIST TOOLS: e.g., "ChatGPT-4 for question generation," "Otter.ai for transcription," "NVivo's AI coding suggestions"].<br><br>
+                        
+                        <strong>AI Use Protocols:</strong><br>
+                        • All AI-generated content will be reviewed and validated by the research team<br>
+                        • AI will not make final decisions about data interpretation or conclusions<br>
+                        • Participants will be informed of AI use in [SPECIFY WHERE: consent forms/information sheets]<br>
+                        • AI use will be documented throughout the research process<br>
+                        • All AI outputs will be treated as preliminary and subject to human oversight<br><br>
+                        
+                        <strong>Data Security:</strong> [IF APPLICABLE] AI tools that process participant data will be [SPECIFY SECURITY MEASURES: e.g., "HIPAA-compliant," "used with anonymized data only," "enterprise versions with data protection agreements"].<br><br>
+                        
+                        <strong>Bias Mitigation:</strong> The research team will implement systematic checks to identify and address potential AI bias, including [SPECIFY MEASURES: e.g., "diverse validation panels," "bias detection protocols," "alternative analysis methods"].
+                    </div>
+                </div>
+            </div>
+
+            <div id="methods" class="tab-content">
+                <div class="template-box">
+                    <div class="template-header">
+                        <div class="template-title">Methods Section - AI Integration</div>
+                        <button class="copy-btn" onclick="copyToClipboard('methods-template')">📋 Copy Text</button>
+                    </div>
+                    <div class="template-text" id="methods-template">
+                        <strong>Artificial Intelligence Integration</strong><br><br>
+                        
+                        This study incorporated artificial intelligence tools to enhance [SPECIFY RESEARCH PHASE: e.g., "data collection efficiency," "initial analysis," "instrument development"] while maintaining rigorous methodological standards. The AI integration followed a systematic protocol designed to preserve research integrity and minimize bias.<br><br>
+                        
+                        <strong>AI Tools Used:</strong><br>
+                        • [TOOL NAME] (Version X.X) for [SPECIFIC PURPOSE]<br>
+                        • [TOOL NAME] for [SPECIFIC PURPOSE]<br>
+                        • [Additional tools as needed]<br><br>
+                        
+                        <strong>AI Integration Protocol:</strong><br>
+                        1. <strong>Pre-AI Foundation:</strong> [DESCRIBE: Research questions, theoretical framework, and methodological approach were established before AI engagement]<br>
+                        2. <strong>AI Application:</strong> [DESCRIBE: How AI was used, what prompts/instructions were given]<br>
+                        3. <strong>Human Validation:</strong> [DESCRIBE: Review process, validation methods, quality checks]<br>
+                        4. <strong>Bias Assessment:</strong> [DESCRIBE: Steps taken to identify and mitigate potential AI bias]<br><br>
+                        
+                        <strong>Limitations and Controls:</strong> AI outputs were treated as preliminary suggestions requiring human validation. [DESCRIBE: Specific validation methods, inter-rater reliability checks, or alternative analysis comparisons]. The research team maintained final authority over all analytical decisions and interpretations.
+                    </div>
+                </div>
+            </div>
+
+            <div id="ethics" class="tab-content">
+                <div class="template-box">
+                    <div class="template-header">
+                        <div class="template-title">Ethics Statement - AI Transparency</div>
+                        <button class="copy-btn" onclick="copyToClipboard('ethics-template')">📋 Copy Text</button>
+                    </div>
+                    <div class="template-text" id="ethics-template">
+                        <strong>Ethical Considerations of AI Use</strong><br><br>
+                        
+                        The integration of artificial intelligence tools in this research was guided by principles of transparency, accountability, and academic integrity. All AI use was disclosed to [SPECIFY: participants, institutional review board, funding agency] and documented throughout the research process.<br><br>
+                        
+                        <strong>Transparency Measures:</strong><br>
+                        • Participants were informed of AI use during [SPECIFY: consent process, data collection, other]<br>
+                        • All AI-generated content was clearly marked and attributed<br>
+                        • The specific roles and limitations of AI tools were explicitly documented<br>
+                        • Research team members maintained oversight of all AI applications<br><br>
+                        
+                        <strong>Bias and Fairness:</strong> We acknowledge that AI systems may perpetuate or amplify existing biases. To address this concern, we [DESCRIBE SPECIFIC MEASURES: e.g., "tested AI outputs across diverse demographic groups," "used multiple validation methods," "consulted with community stakeholders"].<br><br>
+                        
+                        <strong>Academic Integrity:</strong> AI tools were used to enhance, not replace, human analytical thinking. All research conclusions, theoretical interpretations, and methodological decisions remained under direct human control. AI suggestions were treated as one source of input among many in the research process.
+                    </div>
+                </div>
+            </div>
+
+            <div id="limitations" class="tab-content">
+                <div class="template-box">
+                    <div class="template-header">
+                        <div class="template-title">Limitations Section - AI Considerations</div>
+                        <button class="copy-btn" onclick="copyToClipboard('limitations-template')">📋 Copy Text</button>
+                    </div>
+                    <div class="template-text" id="limitations-template">
+                        <strong>Limitations Related to AI Use</strong><br><br>
+                        
+                        The use of artificial intelligence tools in this study introduces several important limitations that readers should consider when interpreting our findings.<br><br>
+                        
+                        <strong>AI Model Limitations:</strong> The AI tools used in this study [LIST SPECIFIC TOOLS] are trained on data that may not fully represent the diversity of [SPECIFY: populations, contexts, perspectives] relevant to our research. This may introduce systematic biases that, despite our mitigation efforts, could influence [SPECIFY: data collection, analysis, interpretation].<br><br>
+                        
+                        <strong>Transparency Constraints:</strong> While we have disclosed our AI use extensively, the proprietary nature of some AI systems means that complete algorithmic transparency is not possible. The specific training data and decision-making processes of [SPECIFY TOOLS] are not fully accessible for independent verification.<br><br>
+                        
+                        <strong>Temporal Limitations:</strong> AI tools are rapidly evolving, and the versions used in this study [SPECIFY VERSIONS AND DATES] may perform differently than current or future iterations. This may affect the reproducibility of our AI-assisted processes.<br><br>
+                        
+                        <strong>Human-AI Interaction Effects:</strong> The effectiveness of AI assistance depends partly on how humans interact with these tools. Our team's specific expertise, prompting strategies, and validation approaches may not be easily replicated by other researchers, potentially affecting generalizability.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="examples">
+            <h2>🔍 Field-Specific Adaptations</h2>
+            
+            <div class="customization-options">
+                <div class="option-card">
+                    <div class="option-title">Psychology Research</div>
+                    <div class="option-desc">Emphasize bias considerations, participant privacy, and clinical implications of AI-assisted analysis in psychological research.</div>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-title">Education Studies</div>
+                    <div class="option-desc">Address institutional policies, student privacy concerns, and AI's role in learning assessment or intervention design.</div>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-title">Sociology Research</div>
+                    <div class="option-desc">Focus on social justice implications, community representation, and power dynamics in AI-assisted social research.</div>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-title">Health Sciences</div>
+                    <div class="option-desc">Highlight HIPAA compliance, clinical validation requirements, and patient safety considerations in health research.</div>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-title">Business Research</div>
+                    <div class="option-desc">Address commercial bias, competitive intelligence ethics, and stakeholder disclosure in business and management studies.</div>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-title">Mixed Methods</div>
+                    <div class="option-desc">Explain how AI integration affects both quantitative and qualitative components, and cross-method validation strategies.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="best-practices">
+            <h3>✅ Best Practices for AI Disclosure</h3>
+            <ul style="color: rgba(255, 255, 255, 0.9); list-style: disc; padding-left: 2rem;">
+                <li style="margin-bottom: 0.8rem;"><strong>Be Specific:</strong> Name exact AI tools, versions, and dates used</li>
+                <li style="margin-bottom: 0.8rem;"><strong>Describe Scope:</strong> Clearly explain what AI did and didn't do in your research</li>
+                <li style="margin-bottom: 0.8rem;"><strong>Document Process:</strong> Keep records of AI interactions for potential audit</li>
+                <li style="margin-bottom: 0.8rem;"><strong>Validate Extensively:</strong> Never accept AI output without human verification</li>
+                <li style="margin-bottom: 0.8rem;"><strong>Consider Context:</strong> Adapt disclosure to your field's specific ethical concerns</li>
+                <li style="margin-bottom: 0.8rem;"><strong>Stay Updated:</strong> Monitor your field's evolving AI ethics guidelines</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>⚠️ Common Mistakes to Avoid</h2>
+            
+            <div class="warning-box">
+                <h4>🚫 Don't Do This</h4>
+                <ul style="color: rgba(255, 255, 255, 0.9); list-style: disc; padding-left: 2rem;">
+                    <li style="margin-bottom: 0.8rem;">Vague disclosure: "AI tools were used in analysis"</li>
+                    <li style="margin-bottom: 0.8rem;">Hiding AI use hoping no one will notice</li>
+                    <li style="margin-bottom: 0.8rem;">Using AI for data interpretation without validation</li>
+                    <li style="margin-bottom: 0.8rem;">Assuming AI is always neutral or objective</li>
+                    <li style="margin-bottom: 0.8rem;">Forgetting to update disclosure as AI use evolves</li>
+                </ul>
+            </div>
+
+            <div class="field-note">
+                <h4>📝 Journal-Specific Requirements</h4>
+                <p>
+                    Many journals are developing specific AI disclosure requirements. Always check your target journal's latest author guidelines before submission. Some require AI disclosure in cover letters, others want it in methods sections, and some have specific formatting requirements.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section" id="download">
+            <h2>📥 Download Complete Template Package</h2>
+            <p>
+                Get all templates as editable documents with field-specific adaptations and customization guides.
+            </p>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <a href="#" class="download-btn">📄 Word Document Package</a>
+                <a href="#" class="download-btn">📝 LaTeX Templates</a>
+                <a href="#" class="download-btn">📋 Quick Reference Guide</a>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                <h3 style="color: white; margin-bottom: 1rem;">📚 Package Includes:</h3>
+                <ul style="color: rgba(255, 255, 255, 0.8); list-style: disc; padding-left: 2rem;">
+                    <li style="margin-bottom: 0.5rem;">IRB proposal templates for 6 research fields</li>
+                    <li style="margin-bottom: 0.5rem;">Methods section boilerplate text</li>
+                    <li style="margin-bottom: 0.5rem;">Ethics statement templates</li>
+                    <li style="margin-bottom: 0.5rem;">Limitations disclosure examples</li>
+                    <li style="margin-bottom: 0.5rem;">Consent form language options</li>
+                    <li style="margin-bottom: 0.5rem;">Journal submission checklists</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>🤝 Join the Ethics Discussion</h2>
+            <p>
+                Questions about AI ethics in research? Share experiences and get guidance from other researchers navigating these new challenges.
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="discussions.html" class="download-btn">💬 Join AI Ethics Discussions</a>
+                <a href="ai-tools-reality-check.html" class="download-btn">📖 Read Our AI Reality Check</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected content and activate tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            // Create temporary textarea
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                // Update button text temporarily
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section, .option-card');
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

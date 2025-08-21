@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixed Methods & AI Integration Guide - Research Methods Central</title>
+    <meta name="description" content="Complete guide to integrating AI in mixed methods research. Sequential, concurrent, and transformative designs with practical AI applications and methodology.">
+    <meta name="keywords" content="mixed methods AI, sequential explanatory AI, concurrent triangulation AI, mixed methods methodology, AI qualitative quantitative">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .article-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .article-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .content-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section h3 {
+            font-size: 1.3rem;
+            color: white;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        .content-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .design-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .design-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .design-card.sequential { border-left: 4px solid #48bb78; }
+        .design-card.concurrent { border-left: 4px solid #667eea; }
+        .design-card.transformative { border-left: 4px solid #ed8936; }
+        
+        .design-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .design-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        
+        .design-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .design-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+        
+        .ai-applications {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .ai-applications h4 {
+            color: white;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+        
+        .application-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .application-list li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        
+        .application-list li::before {
+            content: "🤖";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .workflow-diagram {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        
+        .ai-integration {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            border-left: 3px solid #667eea;
+        }
+        
+        .ai-integration-title {
+            color: #667eea;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .ai-integration-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+        
+        .case-study {
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.1) 0%, rgba(56, 161, 105, 0.1) 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(72, 187, 120, 0.3);
+        }
+        
+        .case-study h3 {
+            color: #48bb78;
+            margin-bottom: 1rem;
+        }
+        
+        .challenges-solutions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .challenge-box {
+            background: rgba(245, 101, 101, 0.1);
+            border: 1px solid rgba(245, 101, 101, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        
+        .solution-box {
+            background: rgba(72, 187, 120, 0.1);
+            border: 1px solid rgba(72, 187, 120, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        
+        .challenge-box h4 {
+            color: #f56565;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .solution-box h4 {
+            color: #48bb78;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .framework-box {
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .framework-box h3 {
+            color: #8b5cf6;
+            margin-bottom: 1rem;
+        }
+        
+        .validation-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .validation-cell {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .validation-header {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            color: white;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.2) 0%, rgba(56, 161, 105, 0.2) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px solid rgba(72, 187, 120, 0.3);
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .challenges-solutions {
+                grid-template-columns: 1fr;
+            }
+            
+            .validation-matrix {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Research Methods Central</a>
+            <a href="resource-directory.html" class="back-link">← Back to Resources</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="article-header">
+            <h1 class="article-title">Mixed Methods & AI Integration</h1>
+            <p class="article-subtitle">
+                Complete guide to thoughtfully integrating AI across sequential, concurrent, and transformative mixed methods designs while maintaining methodological rigor.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>🎯 Why Mixed Methods + AI?</h2>
+            <p>
+                Mixed methods research is uniquely positioned to benefit from AI integration. The complexity of managing both quantitative and qualitative components creates natural opportunities for AI assistance, while the methodological rigor of mixed methods provides frameworks for validating AI contributions.
+            </p>
+            <p>
+                <strong>The key insight:</strong> AI can enhance efficiency and reveal patterns across data types, but mixed methods triangulation provides the validation AI needs to be trustworthy.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>🔄 AI Integration by Design Type</h2>
+            
+            <div class="design-grid">
+                <div class="design-card sequential">
+                    <div class="design-header">
+                        <div class="design-icon">📊➡️💬</div>
+                        <div class="design-title">Sequential Explanatory</div>
+                    </div>
+                    <div class="design-description">
+                        Quantitative phase followed by qualitative phase. AI can bridge phases and inform transitions.
+                    </div>
+                    <div class="ai-applications">
+                        <h4>AI Applications:</h4>
+                        <ul class="application-list">
+                            <li>Generate qual questions from quant findings</li>
+                            <li>Identify patterns requiring deeper exploration</li>
+                            <li>Create interview guides based on survey data</li>
+                            <li>Suggest sampling strategies for Phase 2</li>
+                            <li>Draft initial code schemes from quant results</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="design-card concurrent">
+                    <div class="design-header">
+                        <div class="design-icon">📊⚖️💬</div>
+                        <div class="design-title">Concurrent Triangulation</div>
+                    </div>
+                    <div class="design-description">
+                        Equal weight to quantitative and qualitative data collected simultaneously. AI helps manage parallel analysis.
+                    </div>
+                    <div class="ai-applications">
+                        <h4>AI Applications:</h4>
+                        <ul class="application-list">
+                            <li>Cross-validate findings between data types</li>
+                            <li>Identify convergent/divergent patterns</li>
+                            <li>Manage real-time data integration</li>
+                            <li>Generate meta-inferences automatically</li>
+                            <li>Flag inconsistencies for investigation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="design-card transformative">
+                    <div class="design-header">
+                        <div class="design-icon">🔄🌟</div>
+                        <div class="design-title">Transformative Framework</div>
+                    </div>
+                    <div class="design-description">
+                        Advocacy lens guides all methodological decisions. AI must be evaluated for bias and power implications.
+                    </div>
+                    <div class="ai-applications">
+                        <h4>AI Applications:</h4>
+                        <ul class="application-list">
+                            <li>Detect bias in data collection/analysis</li>
+                            <li>Amplify marginalized voices in data</li>
+                            <li>Identify power dynamics in responses</li>
+                            <li>Generate inclusive survey language</li>
+                            <li>Check for representational gaps</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>🔄 Sequential Explanatory + AI: Step-by-Step</h2>
+            
+            <div class="workflow-diagram">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Quantitative Data Collection</div>
+                        <div class="step-description">Deploy surveys, collect measurements, gather numerical data</div>
+                        <div class="ai-integration">
+                            <div class="ai-integration-title">🤖 AI Integration:</div>
+                            <div class="ai-integration-text">Use AI for survey optimization, response validation, real-time quality checks</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Quantitative Analysis</div>
+                        <div class="step-description">Statistical analysis, pattern identification, initial findings</div>
+                        <div class="ai-integration">
+                            <div class="ai-integration-title">🤖 AI Integration:</div>
+                            <div class="ai-integration-text">AI-assisted pattern recognition, automated reporting, hypothesis generation for Phase 2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Transition Planning</div>
+                        <div class="step-description">Design qualitative phase based on quantitative findings</div>
+                        <div class="ai-integration">
+                            <div class="ai-integration-title">🤖 AI Integration:</div>
+                            <div class="ai-integration-text">AI generates interview questions, suggests sampling strategies, identifies key areas to explore</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Qualitative Data Collection</div>
+                        <div class="step-description">Interviews, focus groups, observations to explain quantitative results</div>
+                        <div class="ai-integration">
+                            <div class="ai-integration-title">🤖 AI Integration:</div>
+                            <div class="ai-integration-text">AI transcription, real-time analysis, adaptive questioning suggestions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-title">Qualitative Analysis</div>
+                        <div class="step-description">Coding, theme development, pattern interpretation</div>
+                        <div class="ai-integration">
+                            <div class="ai-integration-title">🤖 AI Integration:</div>
+                            <div class="ai-integration-text">AI-assisted initial coding, theme suggestion, pattern identification across datasets</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <div class="step-title">Integration & Meta-Inferences</div>
+                        <div class="step-description">Synthesize quantitative and qualitative findings</div>
+                        <div class="ai-integration">
+                            <div class="ai-integration-title">🤖 AI Integration:</div>
+                            <div class="ai-integration-text">AI helps identify convergent/divergent findings, suggests integration frameworks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study">
+            <h3>💡 Case Study: Employee Wellbeing Research</h3>
+            <p><strong>Research Question:</strong> How do remote work policies affect employee wellbeing, and what factors explain these effects?</p>
+            
+            <h4>Phase 1 - Quantitative (AI-Enhanced):</h4>
+            <ul style="color: rgba(255, 255, 255, 0.9); list-style: disc; padding-left: 2rem; margin: 1rem 0;">
+                <li>AI-optimized survey deployed to 2,500 employees</li>
+                <li>Statistical analysis reveals: remote workers score 15% higher on wellbeing measures</li>
+                <li><strong>AI insight:</strong> Pattern recognition identifies "manager communication frequency" as unexpected predictor</li>
+            </ul>
+
+            <h4>AI-Powered Transition:</h4>
+            <ul style="color: rgba(255, 255, 255, 0.9); list-style: disc; padding-left: 2rem; margin: 1rem 0;">
+                <li>AI generates interview questions focused on manager communication patterns</li>
+                <li>Suggests stratified sampling: high/low wellbeing scorers across communication levels</li>
+                <li>Creates interview guide exploring unexpected quantitative findings</li>
+            </ul>
+
+            <h4>Phase 2 - Qualitative (AI-Assisted):</h4>
+            <ul style="color: rgba(255, 255, 255, 0.9); list-style: disc; padding-left: 2rem; margin: 1rem 0;">
+                <li>AI transcription enables real-time interview analysis</li>
+                <li>Initial coding suggests themes around "autonomy vs. connection"</li>
+                <li><strong>Human insight:</strong> Validates/refines AI suggestions through deep interpretation</li>
+            </ul>
+
+            <p style="margin-top: 1.5rem;"><strong>Result:</strong> AI helped identify the critical role of manager communication style in remote work success - a finding that emerged from AI pattern recognition but required human interpretation to understand.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>⚖️ Concurrent Triangulation Strategies</h2>
+            
+            <div class="challenges-solutions">
+                <div class="challenge-box">
+                    <h4>🚨 Challenge: Data Overload</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">
+                        Managing simultaneous quantitative and qualitative data streams can overwhelm researchers.
+                    </p>
+                </div>
+                
+                <div class="solution-box">
+                    <h4>✅ AI Solution: Real-Time Integration</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">
+                        AI dashboards show convergent/divergent patterns as data comes in, flagging areas needing attention.
+                    </p>
+                </div>
+                
+                <div class="challenge-box">
+                    <h4>🚨 Challenge: Validation Complexity</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">
+                        Determining when quantitative and qualitative findings truly triangulate requires expertise.
+                    </p>
+                </div>
+                
+                <div class="solution-box">
+                    <h4>✅ AI Solution: Pattern Matching</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">
+                        AI identifies potential convergence points, but human judgment determines theoretical significance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="validation-matrix">
+                <div class="validation-cell validation-header">Data Type</div>
+                <div class="validation-cell validation-header">AI Role</div>
+                <div class="validation-cell validation-header">Human Validation</div>
+                
+                <div class="validation-cell">Survey Responses</div>
+                <div class="validation-cell" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Pattern identification, outlier detection</div>
+                <div class="validation-cell" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Theoretical interpretation, context assessment</div>
+                
+                <div class="validation-cell">Interview Data</div>
+                <div class="validation-cell" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Initial coding, theme suggestions</div>
+                <div class="validation-cell" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Deep meaning analysis, cultural context</div>
+                
+                <div class="validation-cell">Cross-Data Patterns</div>
+                <div class="validation-cell" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Convergence flagging, discrepancy identification</div>
+                <div class="validation-cell" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Triangulation decisions, meta-inference development</div>
+            </div>
+        </div>
+
+        <div class="framework-box">
+            <h3>🌟 Transformative Framework Considerations</h3>
+            <p>When using AI in transformative mixed methods research, additional ethical considerations emerge:</p>
+            
+            <h4 style="color: white; margin: 1.5rem 0 1rem 0;">Power & Representation:</h4>
+            <ul style="color: rgba(255, 255, 255, 0.8); list-style: disc; padding-left: 2rem;">
+                <li style="margin-bottom: 0.8rem;"><strong>Whose voices does AI amplify?</strong> Check if AI suggestions favor dominant perspectives</li>
+                <li style="margin-bottom: 0.8rem;"><strong>Bias detection:</strong> Use AI to identify, not perpetuate, systemic biases in data</li>
+                <li style="margin-bottom: 0.8rem;"><strong>Community validation:</strong> Include affected communities in validating AI insights</li>
+            </ul>
+
+            <h4 style="color: white; margin: 1.5rem 0 1rem 0;">Methodological Integrity:</h4>
+            <ul style="color: rgba(255, 255, 255, 0.8); list-style: disc; padding-left: 2rem;">
+                <li style="margin-bottom: 0.8rem;">Transparent disclosure of AI use to all stakeholders</li>
+                <li style="margin-bottom: 0.8rem;">Multiple validation strategies beyond AI suggestions</li>
+                <li style="margin-bottom: 0.8rem;">Continuous bias monitoring throughout the research process</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>🛠️ Practical Implementation Framework</h2>
+            
+            <h3>Phase 1: Pre-Research Planning</h3>
+            <ul style="color: rgba(255, 255, 255, 0.8); list-style: disc; padding-left: 2rem; margin: 1rem 0;">
+                <li style="margin-bottom: 0.8rem;">Map AI integration points across your mixed methods design</li>
+                <li style="margin-bottom: 0.8rem;">Establish validation protocols for each AI application</li>
+                <li style="margin-bottom: 0.8rem;">Plan human oversight checkpoints</li>
+                <li style="margin-bottom: 0.8rem;">Design bias detection strategies</li>
+            </ul>
+
+            <h3>Phase 2: Data Collection</h3>
+            <ul style="color: rgba(255, 255, 255, 0.8); list-style: disc; padding-left: 2rem; margin: 1rem 0;">
+                <li style="margin-bottom: 0.8rem;">Use AI for efficiency (transcription, quality checks)</li>
+                <li style="margin-bottom: 0.8rem;">Maintain human decision-making authority</li>
+                <li style="margin-bottom: 0.8rem;">Document AI contributions for transparency</li>
+                <li style="margin-bottom: 0.8rem;">Monitor for bias in real-time</li>
+            </ul>
+
+            <h3>Phase 3: Analysis & Integration</h3>
+            <ul style="color: rgba(255, 255, 255, 0.8); list-style: disc; padding-left: 2rem; margin: 1rem 0;">
+                <li style="margin-bottom: 0.8rem;">Let AI suggest patterns, humans interpret meaning</li>
+                <li style="margin-bottom: 0.8rem;">Use triangulation to validate AI insights</li>
+                <li style="margin-bottom: 0.8rem;">Apply multiple validation strategies</li>
+                <li style="margin-bottom: 0.8rem;">Develop meta-inferences through human reasoning</li>
+            </ul>
+        </div>
+
+        <div class="download-section">
+            <h2 style="color: white; margin-bottom: 2rem;">📋 Download Implementation Tools</h2>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">
+                Get planning templates, validation checklists, and implementation frameworks for AI-enhanced mixed methods research.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="#" class="download-btn">📊 Design Planning Matrix</a>
+                <a href="#" class="download-btn">✅ Validation Checklist</a>
+                <a href="#" class="download-btn">🔍 Bias Detection Guide</a>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">
+                100% free • Created by mixed methods researchers • Compatible with all MM designs
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>🤝 Continue Learning</h2>
+            <p>
+                Mixed methods and AI integration is an evolving field. Join discussions with other researchers exploring these methodological frontiers.
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="discussions.html" class="download-btn">💬 Join Mixed Methods Discussions</a>
+                <a href="ai-survey-design-checklist.html" class="download-btn">📋 AI Survey Design Guide</a>
+                <a href="research-ethics-ai-template.html" class="download-btn">⚖️ Ethics Templates</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Interactive workflow steps
+        document.addEventListener('DOMContentLoaded', function() {
+            const workflowSteps = document.querySelectorAll('.workflow-step');
+            
+            workflowSteps.forEach((step, index) => {
+                step.addEventListener('click', function() {
+                    // Toggle highlight for clicked step
+                    this.style.background = this.style.background ? '' : 'rgba(255, 255, 255, 0.05)';
+                    this.style.borderRadius = this.style.borderRadius ? '' : '10px';
+                    this.style.padding = this.style.padding ? '' : '1rem';
+                    this.style.margin = this.style.margin ? '' : '1rem 0';
+                    this.style.transition = 'all 0.3s ease';
+                });
+            });
+
+            // Fade in animation
+            const sections = document.querySelectorAll('.content-section, .design-card, .case-study');
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

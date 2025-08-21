@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVivo vs ATLAS.ti vs Free Alternatives: Complete Comparison (2025)</title>
+    <meta name="description" content="Detailed comparison of qualitative research software: NVivo, ATLAS.ti, RQDA, and free alternatives. Find the best tool for your budget and research needs.">
+    <meta name="keywords" content="NVivo vs ATLAS.ti, qualitative research software comparison, free qualitative analysis tools, research software review">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c5282;
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .article-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c5282;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        
+        .table-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 0;
+        }
+        
+        .grid-header {
+            background: #f7fafc;
+            padding: 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .grid-cell {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .feature-name {
+            text-align: left;
+            font-weight: 500;
+            background: #f9f9f9;
+        }
+        
+        .check-yes {
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        .check-no {
+            color: #e53e3e;
+            font-weight: bold;
+        }
+        
+        .check-partial {
+            color: #ed8936;
+            font-weight: bold;
+        }
+        
+        .price-highlight {
+            background: #e6fffa;
+            border: 2px solid #38b2ac;
+            border-radius: 5px;
+            padding: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .tool-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .tool-title {
+            font-size: 1.8rem;
+            color: #2c5282;
+            font-weight: 600;
+        }
+        
+        .tool-price {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .price-premium {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        
+        .price-free {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .pros, .cons {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .pros h4 {
+            color: #22543d;
+            margin-bottom: 1rem;
+        }
+        
+        .cons h4 {
+            color: #742a2a;
+            margin-bottom: 1rem;
+        }
+        
+        .pros ul, .cons ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pros li::before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        .cons li::before {
+            content: "✗ ";
+            color: #e53e3e;
+            font-weight: bold;
+        }
+        
+        .recommendation-box {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #2c5282;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .affiliate-disclosure {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Research Methods Central</a>
+            <a href="resource-directory.html" class="back-link">← Back to Directory</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="article-header">
+            <h1>Qualitative Research Software: Complete Comparison Guide</h1>
+            <p>Find the perfect tool for your research needs and budget</p>
+        </div>
+
+        <div class="affiliate-disclosure">
+            <strong>Transparency Note:</strong> This comparison includes both free and paid options. Some links are affiliate links that help support this free resource, but our recommendations are based on actual testing and user feedback, not commission rates.
+        </div>
+
+        <!-- Quick Comparison Table -->
+        <div class="comparison-table">
+            <div class="table-header">
+                <h2>Quick Comparison Overview</h2>
+            </div>
+            <div class="comparison-grid">
+                <div class="grid-header feature-name">Feature</div>
+                <div class="grid-header">NVivo</div>
+                <div class="grid-header">ATLAS.ti</div>
+                <div class="grid-header">RQDA (Free)</div>
+                <div class="grid-header">Taguette (Free)</div>
+                
+                <div class="grid-cell feature-name">Price (Annual)</div>
+                <div class="grid-cell">$1,399</div>
+                <div class="grid-cell">$799</div>
+                <div class="grid-cell price-highlight">FREE</div>
+                <div class="grid-cell price-highlight">FREE</div>
+                
+                <div class="grid-cell feature-name">Learning Curve</div>
+                <div class="grid-cell">Steep</div>
+                <div class="grid-cell">Moderate</div>
+                <div class="grid-cell">Steep</div>
+                <div class="grid-cell">Easy</div>
+                
+                <div class="grid-cell feature-name">Coding Features</div>
+                <div class="grid-cell check-yes">Advanced</div>
+                <div class="grid-cell check-yes">Advanced</div>
+                <div class="grid-cell check-partial">Basic</div>
+                <div class="grid-cell check-partial">Basic</div>
+                
+                <div class="grid-cell feature-name">Team Collaboration</div>
+                <div class="grid-cell check-yes">✓</div>
+                <div class="grid-cell check-yes">✓</div>
+                <div class="grid-cell check-no">✗</div>
+                <div class="grid-cell check-yes">✓</div>
+                
+                <div class="grid-cell feature-name">Mobile Support</div>
+                <div class="grid-cell check-partial">Limited</div>
+                <div class="grid-cell check-yes">✓</div>
+                <div class="grid-cell check-no">✗</div>
+                <div class="grid-cell check-yes">✓</div>
+                
+                <div class="grid-cell feature-name">Best For</div>
+                <div class="grid-cell">Large projects</div>
+                <div class="grid-cell">Theory building</div>
+                <div class="grid-cell">R users</div>
+                <div class="grid-cell">Beginners</div>
+            </div>
+        </div>
+
+        <!-- Detailed Reviews -->
+        
+        <!-- NVivo -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <div class="tool-title">NVivo</div>
+                <div class="tool-price price-premium">$1,399/year</div>
+            </div>
+            <p>NVivo is the industry standard for qualitative research analysis, offering comprehensive features for complex research projects. It's particularly strong for large datasets and mixed-methods research.</p>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Most comprehensive feature set</li>
+                        <li>Excellent for large, complex projects</li>
+                        <li>Strong multimedia support</li>
+                        <li>Advanced query capabilities</li>
+                        <li>Robust export options</li>
+                        <li>University site licenses available</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Limitations</h4>
+                    <ul>
+                        <li>Very expensive for individuals</li>
+                        <li>Steep learning curve</li>
+                        <li>Can be overwhelming for simple projects</li>
+                        <li>Resource-intensive software</li>
+                        <li>Limited mobile functionality</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p><strong>Best for:</strong> Large research teams, complex mixed-methods projects, institutional researchers with budget for premium tools.</p>
+            
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="#" class="cta-button">View NVivo Details</a>
+                <small style="display: block; margin-top: 0.5rem; color: #666;">Affiliate link - helps support this free resource</small>
+            </div>
+        </div>
+
+        <!-- ATLAS.ti -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <div class="tool-title">ATLAS.ti</div>
+                <div class="tool-price price-premium">$799/year</div>
+            </div>
+            <p>ATLAS.ti excels at theory building and visualization, making it ideal for grounded theory and phenomenological research approaches.</p>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Excellent visualization tools</li>
+                        <li>Strong theory-building features</li>
+                        <li>More affordable than NVivo</li>
+                        <li>Good mobile app</li>
+                        <li>Intuitive network views</li>
+                        <li>Cloud collaboration features</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Limitations</h4>
+                    <ul>
+                        <li>Still expensive for students</li>
+                        <li>Fewer features than NVivo</li>
+                        <li>Learning curve for advanced features</li>
+                        <li>Limited statistical integration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p><strong>Best for:</strong> Grounded theory research, visual learners, researchers focused on theory building, teams needing mobile access.</p>
+            
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="#" class="cta-button">View ATLAS.ti Details</a>
+                <small style="display: block; margin-top: 0.5rem; color: #666;">Affiliate link - helps support this free resource</small>
+            </div>
+        </div>
+
+        <!-- RQDA -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <div class="tool-title">RQDA (R Package)</div>
+                <div class="tool-price price-free">FREE</div>
+            </div>
+            <p>RQDA is a powerful free alternative for researchers already familiar with R. It provides essential qualitative analysis features within the R statistical environment.</p>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Completely free and open-source</li>
+                        <li>Integrates with R for advanced analysis</li>
+                        <li>No licensing restrictions</li>
+                        <li>Active community support</li>
+                        <li>Customizable through R scripting</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Limitations</h4>
+                    <ul>
+                        <li>Requires R knowledge</li>
+                        <li>Basic interface compared to commercial tools</li>
+                        <li>Limited multimedia support</li>
+                        <li>No official customer support</li>
+                        <li>Steeper learning curve for non-R users</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p><strong>Best for:</strong> R users, budget-conscious researchers, academics comfortable with open-source tools, students learning both R and qualitative methods.</p>
+            
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="#" class="cta-button">Get RQDA Free</a>
+                <small style="display: block; margin-top: 0.5rem; color: #666;">No commission - truly free resource</small>
+            </div>
+        </div>
+
+        <!-- Taguette -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <div class="tool-title">Taguette</div>
+                <div class="tool-price price-free">FREE</div>
+            </div>
+            <p>Taguette is a user-friendly, web-based qualitative analysis tool perfect for beginners or researchers working on smaller projects.</p>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Completely free</li>
+                        <li>Web-based - no installation needed</li>
+                        <li>Very easy to learn</li>
+                        <li>Collaborative features</li>
+                        <li>Clean, intuitive interface</li>
+                        <li>Regular updates and improvements</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Limitations</h4>
+                    <ul>
+                        <li>Limited advanced features</li>
+                        <li>Basic visualization options</li>
+                        <li>Not suitable for very large projects</li>
+                        <li>Requires internet connection</li>
+                        <li>Limited export formats</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p><strong>Best for:</strong> Beginners, small projects, collaborative student work, researchers who want simplicity over advanced features.</p>
+            
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="#" class="cta-button">Try Taguette Free</a>
+                <small style="display: block; margin-top: 0.5rem; color: #666;">No commission - truly free resource</small>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recommendation-box">
+            <h2>Our Honest Recommendations</h2>
+            <p><strong>For Students/Budget-Conscious:</strong> Start with Taguette for simple projects, learn RQDA if you use R</p>
+            <p><strong>For Professional Researchers:</strong> ATLAS.ti offers the best value for advanced features</p>
+            <p><strong>For Large Institutions:</strong> NVivo if budget allows and you need maximum functionality</p>
+            <p><strong>For Beginners:</strong> Taguette is perfect for learning qualitative analysis concepts</p>
+        </div>
+
+        <div class="tool-section">
+            <h2>Making Your Decision</h2>
+            <p>The best qualitative analysis software depends on your specific needs:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Budget:</strong> Free options can handle most basic to intermediate research needs</li>
+                <li><strong>Project Size:</strong> Larger datasets benefit from commercial software features</li>
+                <li><strong>Team Collaboration:</strong> Consider cloud-based features if working with others</li>
+                <li><strong>Learning Time:</strong> Free tools often require more initial investment in learning</li>
+                <li><strong>Technical Skills:</strong> RQDA requires R knowledge, while Taguette is beginner-friendly</li>
+            </ul>
+            
+            <p>Remember: The most expensive software isn't always the best choice. Many excellent research projects have been completed using free tools. Choose based on your actual needs, not perceived prestige.</p>
+        </div>
+    </main>
+
+    <script>
+        // Add smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

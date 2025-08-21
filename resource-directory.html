@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Research Methods Resource Directory - Research Methods Central</title>
+    <meta name="description" content="Comprehensive directory of research tools, software, courses, and resources. Compare options, find free alternatives, and discover the best tools for your research needs.">
+    <meta name="keywords" content="research tools directory, qualitative software, research methods courses, academic resources, free research tools">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c5282;
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #2c5282;
+            margin-bottom: 1rem;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-tab {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-tab.active {
+            background: #2c5282;
+            color: white;
+            border-color: #2c5282;
+        }
+        
+        .resource-category {
+            margin-bottom: 3rem;
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .category-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .resource-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .price-free {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .price-paid {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        
+        .price-freemium {
+            background: #feebc8;
+            color: #744210;
+        }
+        
+        .resource-description {
+            color: #4a5568;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .resource-features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-features li {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .resource-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        .resource-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .resource-link {
+            background: #2c5282;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        
+        .resource-link:hover {
+            background: #2a4a7c;
+        }
+        
+        .affiliate-note {
+            font-size: 0.75rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .disclaimer {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .search-bar {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Research Methods Central</a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Research Methods Resource Directory</h1>
+            <p>Comprehensive collection of tools, software, courses, and resources for researchers</p>
+        </div>
+
+        <div class="disclaimer">
+            <strong>Our Commitment to Transparency</strong><br>
+            We feature the best resources regardless of commission rates. Free alternatives are always highlighted. 
+            Links marked with affiliate disclosure may earn us a commission, which helps support this free resource.
+        </div>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search resources by name, feature, or category...">
+        </div>
+
+        <div class="filter-tabs">
+            <div class="filter-tab active" data-category="all">All Resources</div>
+            <div class="filter-tab" data-category="ai-tools">AI & Research</div>
+            <div class="filter-tab" data-category="software">Software & Tools</div>
+            <div class="filter-tab" data-category="courses">Courses & Training</div>
+            <div class="filter-tab" data-category="templates">Templates & Guides</div>
+            <div class="filter-tab" data-category="free">Free Only</div>
+        </div>
+
+        <!-- AI & Research Tools -->
+        <div class="resource-category" data-category="ai-tools">
+            <div class="category-header">
+                <h2>AI & Research Tools</h2>
+                <p>Practical AI integration for researchers - cut through the hype with evidence-based guidance</p>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-card" style="border: 2px solid #48bb78; position: relative;">
+                    <div style="position: absolute; top: -10px; right: 10px; background: #48bb78; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">Featured</div>
+                    <div class="resource-header">
+                        <div class="resource-title">AI Tools for Researchers: Reality Check</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Honest, practical guide to AI in research. Cut through fear-mongering with evidence-based insights on what AI can actually do for researchers.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Realistic AI capabilities assessment</li>
+                        <li>Honest tool reviews from real testing</li>
+                        <li>Practical integration strategies</li>
+                        <li>Risk mitigation techniques</li>
+                        <li>Step-by-step learning path</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="ai-tools-reality-check.html" class="resource-link">Read Full Guide</a>
+                        <div class="affiliate-note">Original content</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">Mixed Methods & AI Integration</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Complete guide to integrating AI across sequential, concurrent, and transformative mixed methods designs with practical frameworks.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Design-specific AI applications</li>
+                        <li>Step-by-step implementation workflows</li>
+                        <li>Validation and triangulation strategies</li>
+                        <li>Transformative framework considerations</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="mixed-methods-ai-integration.html" class="resource-link">Read Guide</a>
+                        <div class="affiliate-note">Original content</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">Semantic Scholar</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        AI-powered academic search engine that helps discover relevant papers, track citations, and understand research landscapes.
+                    </div>
+                    <ul class="resource-features">
+                        <li>AI-powered paper recommendations</li>
+                        <li>Citation network visualization</li>
+                        <li>Research trend analysis</li>
+                        <li>Author collaboration mapping</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">Try Tool</a>
+                        <div class="affiliate-note">No commission</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">Otter.ai</div>
+                        <div class="price-tag price-freemium">Freemium</div>
+                    </div>
+                    <div class="resource-description">
+                        AI transcription service for interviews and focus groups. Good starting point but always requires manual verification.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Real-time transcription</li>
+                        <li>Speaker identification</li>
+                        <li>Keyword highlighting</li>
+                        <li>Integration with Zoom/Teams</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">Try Free</a>
+                        <div class="affiliate-note">Affiliate link</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">AI Survey Design Checklist</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Complete 4-phase checklist for using AI in survey design while maintaining methodological rigor and avoiding bias amplification.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Strategic AI prompting techniques</li>
+                        <li>Systematic bias detection methods</li>
+                        <li>Mixed methods integration guide</li>
+                        <li>Interactive validation checklist</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="ai-survey-design-checklist.html" class="resource-link">Use Checklist</a>
+                        <div class="affiliate-note">Original content</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">Research Ethics & AI Template</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Complete IRB-ready templates for transparent AI disclosure in research. Includes methods sections, ethics statements, and field-specific adaptations.
+                    </div>
+                    <ul class="resource-features">
+                        <li>IRB proposal disclosure templates</li>
+                        <li>Copy-paste methods section text</li>
+                        <li>Ethics statement frameworks</li>
+                        <li>6 field-specific adaptations</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="research-ethics-ai-template.html" class="resource-link">Use Templates</a>
+                        <div class="affiliate-note">Original content</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Qualitative Analysis Software -->
+        <div class="resource-category" data-category="software">
+            <div class="category-header">
+                <h2>Qualitative Analysis Software</h2>
+                <p>Compare leading and free alternatives for qualitative data analysis</p>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">NVivo</div>
+                        <div class="price-tag price-paid">Paid</div>
+                    </div>
+                    <div class="resource-description">
+                        Industry-standard qualitative analysis software with advanced coding and visualization features.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Advanced coding capabilities</li>
+                        <li>Multi-media data support</li>
+                        <li>Team collaboration features</li>
+                        <li>Export to multiple formats</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">View Details</a>
+                        <div class="affiliate-note">Affiliate link</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">ATLAS.ti</div>
+                        <div class="price-tag price-paid">Paid</div>
+                    </div>
+                    <div class="resource-description">
+                        Professional qualitative analysis with strong visualization and theory-building tools.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Network view visualization</li>
+                        <li>Grounded theory support</li>
+                        <li>Cloud collaboration</li>
+                        <li>Mobile data collection</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">View Details</a>
+                        <div class="affiliate-note">Affiliate link</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">RQDA (R Package)</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Open-source qualitative analysis package for R users. Powerful but requires R knowledge.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Completely free and open-source</li>
+                        <li>Integrates with R statistical environment</li>
+                        <li>Basic coding and analysis features</li>
+                        <li>Active community support</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">Get Free</a>
+                        <div class="affiliate-note">No commission</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">Taguette</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Simple, web-based qualitative analysis tool. Perfect for beginners or small projects.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Web-based, no installation needed</li>
+                        <li>Basic coding and tagging</li>
+                        <li>Export to various formats</li>
+                        <li>Collaborative features</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">Try Free</a>
+                        <div class="affiliate-note">No commission</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Online Courses -->
+        <div class="resource-category" data-category="courses">
+            <div class="category-header">
+                <h2>Research Methods Courses</h2>
+                <p>From free university lectures to comprehensive certification programs</p>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">Coursera Research Methods</div>
+                        <div class="price-tag price-freemium">Freemium</div>
+                    </div>
+                    <div class="resource-description">
+                        University-level courses from top institutions. Audit for free or pay for certificates.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Courses from Yale, Duke, etc.</li>
+                        <li>Free audit option available</li>
+                        <li>Peer-reviewed assignments</li>
+                        <li>Professional certificates</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">Browse Courses</a>
+                        <div class="affiliate-note">Affiliate link</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">MIT OpenCourseWare</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Complete MIT research methods courses with lecture notes, assignments, and readings.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Complete course materials</li>
+                        <li>No registration required</li>
+                        <li>Graduate-level content</li>
+                        <li>Download all materials</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">Access Free</a>
+                        <div class="affiliate-note">No commission</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">FutureLearn Research Methods</div>
+                        <div class="price-tag price-freemium">Freemium</div>
+                    </div>
+                    <div class="resource-description">
+                        UK university courses with social learning approach. Free access with upgrade options.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Interactive social learning</li>
+                        <li>Free access to course content</li>
+                        <li>Discussion forums</li>
+                        <li>Certificate options available</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">View Courses</a>
+                        <div class="affiliate-note">Affiliate link</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Templates and Guides -->
+        <div class="resource-category" data-category="templates">
+            <div class="category-header">
+                <h2>Templates & Guides</h2>
+                <p>Ready-to-use templates and comprehensive guides from various creators</p>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">Interview Guide Template</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Professional interview protocol with 50+ sample questions for qualitative research.
+                    </div>
+                    <ul class="resource-features">
+                        <li>50+ sample questions</li>
+                        <li>Multiple research contexts</li>
+                        <li>IRB-compliant format</li>
+                        <li>Customizable framework</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="interview-guide-template.html" class="resource-link">Download Free</a>
+                        <div class="affiliate-note">Our resource</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">University Template Libraries</div>
+                        <div class="price-tag price-free">Free</div>
+                    </div>
+                    <div class="resource-description">
+                        Collection of research templates from major universities' writing centers and libraries.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Harvard, Stanford, MIT templates</li>
+                        <li>Dissertation and thesis formats</li>
+                        <li>Citation style guides</li>
+                        <li>Multiple disciplines covered</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">Browse Libraries</a>
+                        <div class="affiliate-note">No commission</div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-title">Dissertation Template Pack</div>
+                        <div class="price-tag price-paid">$29</div>
+                    </div>
+                    <div class="resource-description">
+                        Complete dissertation templates with methodology chapters and formatting guides.
+                    </div>
+                    <ul class="resource-features">
+                        <li>Multiple methodology templates</li>
+                        <li>University-approved formats</li>
+                        <li>Step-by-step guides</li>
+                        <li>Lifetime updates included</li>
+                    </ul>
+                    <div class="resource-footer">
+                        <a href="#" class="resource-link">Purchase</a>
+                        <div class="affiliate-note">Affiliate link</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                const categories = document.querySelectorAll('.resource-category');
+                
+                categories.forEach(cat => {
+                    if (category === 'all') {
+                        cat.style.display = 'block';
+                    } else if (category === 'free') {
+                        // Show all categories but filter individual cards
+                        cat.style.display = 'block';
+                        const cards = cat.querySelectorAll('.resource-card');
+                        cards.forEach(card => {
+                            const priceTag = card.querySelector('.price-tag');
+                            if (priceTag && priceTag.classList.contains('price-free')) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    } else {
+                        if (cat.dataset.category === category) {
+                            cat.style.display = 'block';
+                            // Show all cards in this category
+                            const cards = cat.querySelectorAll('.resource-card');
+                            cards.forEach(card => card.style.display = 'block');
+                        } else {
+                            cat.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.resource-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.resource-title').textContent.toLowerCase();
+                const description = card.querySelector('.resource-description').textContent.toLowerCase();
+                const features = Array.from(card.querySelectorAll('.resource-features li'))
+                    .map(li => li.textContent.toLowerCase()).join(' ');
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm) || features.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

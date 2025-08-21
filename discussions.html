@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Discussions - Research Methods Central</title>
+    <meta name="description" content="Join discussions with researchers worldwide. Get help with methodology, share experiences, and connect with peers in your field.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .page-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .forum-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .forum-main {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .forum-sidebar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            height: fit-content;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .new-post-btn {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .new-post-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.3);
+        }
+        
+        .post-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .post-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .post-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .post-meta {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+        }
+        
+        .post-preview {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .post-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .category-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .category-name {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+        
+        .category-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-stats {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .online-users {
+            margin-top: 2rem;
+        }
+        
+        .user-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .user-badge {
+            background: rgba(72, 187, 120, 0.2);
+            color: #48bb78;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(72, 187, 120, 0.3);
+        }
+        
+        .login-prompt {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .login-prompt h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .login-prompt p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+        
+        .login-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .ad-space {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .forum-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Research Methods Central</a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1 class="page-title">Community Discussions</h1>
+            <p class="page-subtitle">Connect with researchers worldwide, share knowledge, and get help with your methodology questions</p>
+        </div>
+
+        <div id="loginPrompt" class="login-prompt">
+            <h3>Join the Discussion</h3>
+            <p>Create a free account to participate in discussions, ask questions, and share your research experiences</p>
+            <a href="index.html#login" class="login-btn">Join Community</a>
+        </div>
+
+        <div class="forum-grid">
+            <div class="forum-main">
+                <h2 class="section-title">Recent Discussions</h2>
+                
+                <button class="new-post-btn" onclick="promptLogin()">Start New Discussion</button>
+
+                <div class="post-item">
+                    <div class="post-title">Best free alternatives to NVivo for qualitative analysis?</div>
+                    <div class="post-meta">Posted by ResearcherMike in Tool Discussions • 2 hours ago</div>
+                    <div class="post-preview">I'm a PhD student on a tight budget looking for free alternatives to NVivo. I've heard about RQDA but wondering what others are using...</div>
+                    <div class="post-stats">
+                        <span>12 replies</span>
+                        <span>45 views</span>
+                        <span>Last reply: 15 min ago</span>
+                    </div>
+                </div>
+
+                <div class="post-item">
+                    <div class="post-title">How to ensure reliability in semi-structured interviews?</div>
+                    <div class="post-meta">Posted by QualResearcher in Research Methods • 4 hours ago</div>
+                    <div class="post-preview">I'm conducting semi-structured interviews for my dissertation and struggling with maintaining consistency while allowing for natural conversation flow...</div>
+                    <div class="post-stats">
+                        <span>8 replies</span>
+                        <span>72 views</span>
+                        <span>Last reply: 1 hour ago</span>
+                    </div>
+                </div>
+
+                <div class="post-item">
+                    <div class="post-title">Study group for mixed methods research - anyone interested?</div>
+                    <div class="post-meta">Posted by MixedMethodsGal in Study Groups • 1 day ago</div>
+                    <div class="post-preview">Looking to form a virtual study group for researchers using mixed methods approaches. Weekly video calls to discuss challenges and share resources...</div>
+                    <div class="post-stats">
+                        <span>15 replies</span>
+                        <span>134 views</span>
+                        <span>Last reply: 3 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="post-item" style="border-left: 4px solid #48bb78;">
+                    <div class="post-title">🤖 How are you ACTUALLY using AI in your research workflow?</div>
+                    <div class="post-meta">Posted by ResearchMethodsCentral in AI & Research • 6 hours ago</div>
+                    <div class="post-preview">Let's cut through the hype and fear-mongering. Share your real experiences: What AI tools have you tried? What worked? What didn't? Looking for honest, practical insights...</div>
+                    <div class="post-stats">
+                        <span>24 replies</span>
+                        <span>156 views</span>
+                        <span>Last reply: 20 min ago</span>
+                    </div>
+                </div>
+
+                <div class="post-item">
+                    <div class="post-title">ChatGPT for literature reviews: Helpful or harmful?</div>
+                    <div class="post-meta">Posted by AcademicIntegrity in AI & Research • 8 hours ago</div>
+                    <div class="post-preview">My advisor says absolutely no AI, but I've seen classmates using ChatGPT to summarize papers. What's the ethical line here? How do you disclose AI use?...</div>
+                    <div class="post-stats">
+                        <span>18 replies</span>
+                        <span>89 views</span>
+                        <span>Last reply: 45 min ago</span>
+                    </div>
+                </div>
+
+                <div class="post-item">
+                    <div class="post-title">AI transcription accuracy: Otter.ai vs others for interviews</div>
+                    <div class="post-meta">Posted by QualitativeResearcher in Tool Discussions • 12 hours ago</div>
+                    <div class="post-preview">Testing AI transcription for my interview data. Otter.ai got about 85% accuracy but struggled with technical terms. Anyone tried Rev.ai or others? Worth the manual cleanup?...</div>
+                    <div class="post-stats">
+                        <span>11 replies</span>
+                        <span>67 views</span>
+                        <span>Last reply: 2 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="post-item">
+                    <div class="post-title">Survey design with AI: What could go wrong?</div>
+                    <div class="post-meta">Posted by MethodologyNerd in Research Methods • 1 day ago</div>
+                    <div class="post-preview">Experimenting with using AI to generate survey questions but worried about bias amplification. Has anyone developed a checklist for AI-assisted survey design?...</div>
+                    <div class="post-stats">
+                        <span>9 replies</span>
+                        <span>54 views</span>
+                        <span>Last reply: 4 hours ago</span>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); border-radius: 15px; padding: 2rem; margin: 2rem 0; color: white; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; opacity: 0.5;"></div>
+                    <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; opacity: 0.3;"></div>
+                    <div style="position: relative; z-index: 2;">
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">🚀 Smart Discussion Analytics</h3>
+                        <p style="margin-bottom: 1.5rem; opacity: 0.9;">Real-time insights into trending topics, popular methodologies, and emerging research areas from our community discussions.</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                            <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 1.8rem; font-weight: bold;">🔬</div>
+                                <div style="font-size: 0.9rem; opacity: 0.9;">Mixed Methods</div>
+                                <div style="font-size: 0.8rem; opacity: 0.7;">Trending +23%</div>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 1.8rem; font-weight: bold;">📊</div>
+                                <div style="font-size: 0.9rem; opacity: 0.9;">Survey Design</div>
+                                <div style="font-size: 0.8rem; opacity: 0.7;">Hot Topic</div>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 1.8rem; font-weight: bold;">🎯</div>
+                                <div style="font-size: 0.9rem; opacity: 0.9;">Ethics</div>
+                                <div style="font-size: 0.8rem; opacity: 0.7;">Rising +15%</div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Analytics powered by <strong style="color: #fbbf24;">Mixpanel</strong> - Helping researchers discover trends</p>
+                    </div>
+                </div>
+
+                <div class="post-item">
+                    <div class="post-title">Ethical considerations for social media research?</div>
+                    <div class="post-meta">Posted by EthicsFirst in Research Ethics • 2 days ago</div>
+                    <div class="post-preview">I'm planning to analyze public social media posts for my research. What are the current best practices for ethical considerations...</div>
+                    <div class="post-stats">
+                        <span>23 replies</span>
+                        <span>201 views</span>
+                        <span>Last reply: 5 hours ago</span>
+                    </div>
+                </div>
+
+                <div class="post-item">
+                    <div class="post-title">Citation management: Zotero vs Mendeley vs EndNote?</div>
+                    <div class="post-meta">Posted by CitationHelp in Tool Discussions • 3 days ago</div>
+                    <div class="post-preview">Starting my literature review and need to choose a citation manager. What are your experiences with different tools...</div>
+                    <div class="post-stats">
+                        <span>31 replies</span>
+                        <span>298 views</span>
+                        <span>Last reply: 1 day ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forum-sidebar">
+                <h3 class="section-title">Forum Categories</h3>
+                
+                <div class="category-item" style="border-left: 3px solid #48bb78;">
+                    <div class="category-name">🤖 AI & Research</div>
+                    <div class="category-desc">Practical AI integration, tools, and ethics in research</div>
+                    <div class="category-stats">62 posts • 34 online</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-name">🔬 Research Methods</div>
+                    <div class="category-desc">Discuss qualitative, quantitative, and mixed methods</div>
+                    <div class="category-stats">1,234 posts • 89 online</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-name">🔧 Tool Discussions</div>
+                    <div class="category-desc">Software reviews, comparisons, and recommendations</div>
+                    <div class="category-stats">856 posts • 67 online</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-name">🤝 Study Groups</div>
+                    <div class="category-desc">Find research partners and collaboration opportunities</div>
+                    <div class="category-stats">432 posts • 34 online</div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-name">⚖️ Research Ethics</div>
+                    <div class="category-desc">IRB questions, ethical considerations, and best practices</div>
+                    <div class="category-stats">298 posts • 23 online</div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); border-radius: 15px; padding: 2rem; margin: 2rem 0; color: white; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 10px; right: 10px; width: 60px; height: 60px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; opacity: 0.4;"></div>
+                    <div style="position: relative; z-index: 2;">
+                        <h4 style="margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">🎓 Research Skills Hub</h4>
+                        <p style="margin-bottom: 1.5rem; opacity: 0.9; font-size: 0.95rem;">Quick access to essential research tools and learning resources curated by our community.</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            <div style="background: rgba(255, 255, 255, 0.15); padding: 0.8rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div style="font-weight: 600; font-size: 0.9rem;">Interview Guide Generator</div>
+                                    <div style="font-size: 0.8rem; opacity: 0.8;">Create professional interview protocols</div>
+                                </div>
+                                <div style="background: white; color: #059669; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">Try Free</div>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.15); padding: 0.8rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div style="font-weight: 600; font-size: 0.9rem;">Citation Style Checker</div>
+                                    <div style="font-size: 0.8rem; opacity: 0.8;">Validate APA, MLA, Chicago formats</div>
+                                </div>
+                                <div style="background: white; color: #059669; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600;">Launch</div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Tools enhanced by <strong style="color: #fbbf24;">Grammarly</strong> - Professional writing made simple</p>
+                    </div>
+                </div>
+
+                <div class="online-users">
+                    <h4 style="color: white; margin-bottom: 1rem;">Online Now (247 users)</h4>
+                    <div class="user-list">
+                        <span class="user-badge">ResearcherMike</span>
+                        <span class="user-badge">QualGuru</span>
+                        <span class="user-badge">DataAnalyst22</span>
+                        <span class="user-badge">PhDStudent</span>
+                        <span class="user-badge">MethodsExpert</span>
+                        <span class="user-badge">StatsHelper</span>
+                        <span class="user-badge">AcademicLife</span>
+                        <span class="user-badge">ResearchNinja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem('rmcUser'));
+        
+        if (currentUser) {
+            // Hide login prompt if user is logged in
+            document.getElementById('loginPrompt').style.display = 'none';
+            
+            // Update new post button
+            const newPostBtn = document.querySelector('.new-post-btn');
+            newPostBtn.textContent = 'Start New Discussion';
+            newPostBtn.onclick = function() {
+                alert('Discussion creation feature coming soon! For now, enjoy browsing existing discussions.');
+            };
+        }
+
+        function promptLogin() {
+            alert('Please join the community first to start discussions!');
+            window.location.href = 'index.html#login';
+        }
+
+        // Add click handlers for post items (demo)
+        document.querySelectorAll('.post-item').forEach(post => {
+            post.addEventListener('click', function() {
+                if (currentUser) {
+                    alert('Full discussion view coming soon! This is a demo of the community platform.');
+                } else {
+                    alert('Join the community to read full discussions!');
+                }
+            });
+        });
+
+        // Add click handlers for categories
+        document.querySelectorAll('.category-item').forEach(category => {
+            category.addEventListener('click', function() {
+                const categoryName = this.querySelector('.category-name').textContent;
+                alert(`${categoryName} discussions coming soon! This is a demo of the forum structure.`);
+            });
+        });
+    </script>
+</body>
+</html>
