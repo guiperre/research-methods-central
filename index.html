@@ -18,23 +18,19 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #2d3748;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #f093fb 100%);
-            background-attachment: fixed;
+            background: #000;
             min-height: 100vh;
+            position: relative;
         }
         
-        body::before {
-            content: '';
+        #halftoneBackground {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-            pointer-events: none;
             z-index: -1;
+            pointer-events: none;
         }
         
         .container {
@@ -118,19 +114,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            opacity: 0.4;
-            pointer-events: none;
+            min-height: 100vh;
         }
         
         .hero h1 {
@@ -184,7 +168,7 @@
         /* Features Section */
         .features {
             padding: 6rem 0;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
             position: relative;
         }
@@ -278,7 +262,7 @@
         /* Resources Section */
         .resources {
             padding: 6rem 0;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
         }
         
@@ -522,10 +506,11 @@
         </nav>
     </header>
 
+    <!-- Halftone Background -->
+    <canvas id="halftoneBackground"></canvas>
+    
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <!-- Animated Background Canvas -->
-        <canvas id="halftoneCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
         <div class="container" style="position: relative; z-index: 2;">
             <h1>Free Research Methods Community</h1>
             <p>Join thousands of researchers sharing tools, templates, and knowledge. Everything is completely free - enhanced by our partners.</p>
@@ -1082,7 +1067,7 @@
 
         // Halftone Wave Animation
         function initHalftoneAnimation() {
-            const canvas = document.getElementById('halftoneCanvas');
+            const canvas = document.getElementById('halftoneBackground');
             if (!canvas) return;
             
             const ctx = canvas.getContext('2d');
@@ -1092,9 +1077,8 @@
             let time = 0;
 
             const resizeCanvas = () => {
-                const hero = document.querySelector('.hero');
-                canvas.width = hero.offsetWidth;
-                canvas.height = hero.offsetHeight;
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
             };
 
             const drawHalftoneWave = () => {
@@ -1121,19 +1105,19 @@
 
                         ctx.beginPath();
                         ctx.arc(centerX, centerY, size / 2, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(255, 255, 255, ${waveOffset * 0.3})`;
+                        ctx.fillStyle = `rgba(255, 255, 255, ${waveOffset * 0.5})`;
                         ctx.fill();
                     }
                 }
             };
 
             const animate = () => {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 drawHalftoneWave();
 
-                time += 0.03;
+                time += 0.05;
                 animationFrameId = requestAnimationFrame(animate);
             };
 
